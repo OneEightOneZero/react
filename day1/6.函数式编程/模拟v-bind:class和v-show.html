@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        .red{
+            color:red;
+        }
+        .blue{
+            color:blue;
+        }
+        .size{
+            font-size: 14px;
+        }
+    </style>
+    <div id="demo"></div>
+    <script src="../../js/react.js"></script>
+    <script src="../../js/react-dom.js"></script>
+    <script src="../../js/babel.js"></script>
+    <!-- V = Render(M) -->
+    <script type="text/babel">
+        let data = {
+            bool:true
+        }
+        let methods = {
+        }
+        // 注释
+        ReactDOM.render(
+            <div>
+                <p>v-bind:class</p>
+                {/*<label htmlFor></label>*/}
+                <p className={
+                    !data.bool?'red':'blue'
+                }>设置属性值</p>
+
+
+                <p>v-show</p>
+                <p style={{
+                    display:data.bool?'block':'none'
+                }}>设置属性值</p>
+            </div>,
+            document.querySelector("#demo")
+        )
+    </script>
+</body>
+
+</html>

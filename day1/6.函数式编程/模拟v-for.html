@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="demo"></div>
+    <script src="../../js/react.js"></script>
+    <script src="../../js/react-dom.js"></script>
+    <script src="../../js/babel.js"></script>
+    <!-- V = Render(M) -->
+    <script type="text/babel">
+        let data = {
+            name:"lemon",
+            arr:[
+                <li key="1">1</li>,
+                <li key="2">2</li>,
+                <li key="3">3</li>
+            ],
+            // 这里只要把arr2构造成arr的数组格式，就可以在声明式渲染里面显示该列表
+            arr2:[1,2,3]
+        }
+        let methods = {
+            vFor(arr){ 
+                console.log(arr)
+                return arr.map((item,index)=>{
+                    return <li key={index} helloworld={"li-"+item}>{item}</li>
+                })
+                 
+            }
+        }
+        ReactDOM.render(
+            <div>
+                <p>v-for</p>
+                <ul>
+                    {
+                        data.arr
+                    }
+                </ul>
+                <ul>
+                    {
+                        methods.vFor(data.arr2)
+                    }
+                </ul>
+            </div>,
+            document.querySelector("#demo")
+        )
+    </script>
+</body>
+
+</html>

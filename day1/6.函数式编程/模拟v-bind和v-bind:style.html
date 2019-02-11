@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="demo"></div>
+    <script src="../../js/react.js"></script>
+    <script src="../../js/react-dom.js"></script>
+    <script src="../../js/babel.js"></script>
+    <!-- V = Render(M) -->
+    <script type="text/babel">
+        let data = {
+            name:"lemon",
+            size:50,
+            styleObj:{
+                color:'blue',
+                fontSize:`48px`
+            }
+        }
+        let methods = {
+            returnObj(obj){
+                return obj
+            },
+            styleObj(){
+                return {
+                    color:'yellow',
+                    fontSize:`32px`
+                }
+            }
+        }
+        ReactDOM.render(
+            <div>
+                <p>v-bind</p>
+                <p skill={
+                    data.name
+                }>设置属性值</p>
+                <p>v-bind:class</p>
+                <p style={{
+                    color:'red',
+                    fontSize:`${data.size}px`
+                }}>设置属性值</p>
+                <p>v-bind:style</p>
+                <p style={
+                    data.styleObj
+                }>设置属性值</p>
+                <p>v-bind:style</p>
+                <p style={
+                    methods.returnObj(methods.styleObj())
+                }>设置属性值</p>
+            </div>,
+            document.querySelector("#demo")
+        )
+    </script>
+</body>
+
+</html>

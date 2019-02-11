@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="demo"></div>
+    <script src="../../js/react.js"></script>
+    <script src="../../js/react-dom.js"></script>
+    <script src="../../js/babel.js"></script>
+    <!-- V = Render(M) -->
+    <script type="text/babel">
+        let data = {
+            bool:true
+        }
+        let methods = {
+            vIf(bool,html){
+                if(bool){
+                    return html
+                }
+            }
+        }
+        // 注释
+        ReactDOM.render(
+            <div>
+                <p>v-if</p>
+                {
+                    (function(bool) {
+                        if(bool){
+                            return <p>设置属性值</p>
+                        }
+                    })(!data.bool)
+                }
+                <p>v-if</p>
+                {
+                    methods.vIf(data.bool,<p>设置属性值</p>)
+                }
+            </div>,
+            document.querySelector("#demo")
+        )
+    </script>
+</body>
+
+</html>
