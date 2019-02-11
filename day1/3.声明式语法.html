@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="demo"></div>
+    <script src="../js/react.js"></script>
+    <script src="../js/react-dom.js"></script>
+    <script src="../js/babel.js"></script>
+    <script type="text/babel">
+        let data = {
+            name:"lemon",
+            obj:{
+                skill:"ps",
+                age:18
+            },
+            arr:[
+                <li key='1'>1</li>,
+                <li key='2'>2</li>,
+                <li key='3'>3</li>
+            ],
+            bool:true,
+            num:1,
+            html:`
+                <p>
+                    123
+                    <span style="color:red">456</span>
+                    789
+                </p>
+            `
+        }
+        ReactDOM.render(
+            <div>
+                <p>姓名：</p>
+                <p>{data.name}</p>
+                <p>年龄：</p>
+                <p>{data.obj.age}</p>
+                <p>技能：</p>
+                <p>{data.obj.skill}</p>
+                <p>数组：</p>
+                <ul>{data.arr}</ul>
+                <p>布尔值：</p>
+                <p>{!data.bool}</p>
+                <p>{data.num+1}</p>
+                <p>{!data.bool?'真的':'假的'}</p>
+                <div dangerouslySetInnerHTML={{__html:data.html}}></div>
+            </div>,
+            document.querySelector("#demo")
+        )
+    </script>
+</body>
+</html>

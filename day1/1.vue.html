@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- MVVM框架，双向数据绑定 -->
+    <!-- Object.defineProperty    set,get -->
+    <!-- View -->
+    <div id="demo"></div>
+    <script src="../js/vue.js"></script>
+    <script>
+        new Vue({
+            el:"#demo",
+            // Model
+            data:{
+                name:"lemon",
+                html:`
+                    <p>
+                        123
+                        <span style="color:red">456</span>
+                        789
+                    </p>
+                `
+            },
+            template:`
+                <div>
+                    <p>{{name}}</p>
+                    <input v-model="name" />
+                    <button @click="changeName">OK</button>
+                    <p v-text="name"></p> 
+                    <div v-html="html"></div>
+                </div>
+            `,
+            methods:{
+                changeName(){
+                    this.name = "laoxie"
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

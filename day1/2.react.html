@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- View -->
+    <div id="demo"></div>
+    <script src="../js/react.js"></script>
+    <script src="../js/react-dom.js"></script>
+    <script src="../js/babel.js"></script>
+    <!-- JSX语法 script标签里面写的都是JSX语法，所以要设置type="text/babel"通知babel.js帮你把JSX转为JS -->
+    <script type="text/babel">
+        // react-dom提供的ReactDOM的render方法来渲染DOM结构
+        // render: ƒ (element, container, callback)
+        // Model
+        // React是单向数据绑定的
+        // 视图变数据不变，这是react和vue的最大区别之一
+        // vue借助v-model,@xxx,v-on:xxx，才可以完成视图更改，数据变化
+        // react是没有任何指令的，所以要V->M是没有v-model，只有事件这种方法
+        let data = {
+            name:"lemon"
+        }
+        ReactDOM.render(
+            <div>
+                <p>{data.name}</p>    
+            </div>,
+            document.querySelector("#demo")
+        )
+    </script>
+</body>
+</html>
