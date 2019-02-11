@@ -24,10 +24,14 @@
         let data = {
             name:"lemon"
         }
+        let template = <div>
+            <p>{data.name}</p>
+        </div>
+        
+        console.log(template)
         ReactDOM.render(
-            <div>
-                <p>{data.name}</p>    
-            </div>,
+            template
+            ,
             document.querySelector("#demo")
         )
     </script>
