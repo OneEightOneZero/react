@@ -1,7 +1,26 @@
 class Xcontent extends React.Component {
     constructor(props) {
         super(props)
+        console.log(props)
         this.props = props
+        this.state = {
+
+        }
+    }
+    // 监听props和state
+    componentDidUpdate(){
+
+    }
+    // 单独监听props
+    componentWillReceiveProps(props){
+        console.log(props)
+        axios.get("http://localhost:3000/users/news",{
+            params:{
+                channel:props.channel
+            }
+        }).then((data)=>{
+            console.log(data)
+        })
     }
     render() {
         return (
@@ -91,6 +110,7 @@ class Xcontent extends React.Component {
             <div className="list_bottom">
                 <section className="loadmoretip"><a href="#">加载中...</a></section>
             </div>
+            <div>{this.props.channel}</div>
         </content>
         )
     }

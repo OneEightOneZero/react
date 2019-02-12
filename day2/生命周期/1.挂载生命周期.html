@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        *{
+            margin:0;
+            padding:0
+        }
+        header{
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            color:white;
+            background-color: red;
+            text-align: center;
+        }
+    </style>
+    <div id="demo"></div>
+    <script src="../../js/react.js"></script>
+    <script src="../../js/react-dom.js"></script>
+    <script src="../../js/babel.js"></script>
+    <script type="text/babel">
+        class Xheader extends React.Component{
+            constructor(props){
+                super(props)
+                this.props = props
+                this.state = {
+                    name: "lemon"
+                }
+            }
+            render(){
+                return (
+                    <div>
+                        <input value={this.state.name} onChange={this.setValue.bind(this)} />
+                        <p>{this.state.name}</p>
+                    </div>
+                )
+            }
+            setValue(e){
+                this.setState({
+                    name: e.target.value
+                })
+            }
+            // 高级优化点，一般用得比较少
+            shouldComponentUpdate(){
+                // 如果返回true，页面更新，否则不更新
+                if(this.state.name.length>5){
+                    return false
+                }else{
+                    return true
+                }
+                
+            }
+        }
+        ReactDOM.render(
+            <div>
+                <Xheader title="微信" />
+            </div>,
+            document.querySelector("#demo")
+        )
+    </script>
+</body>
+</html>
