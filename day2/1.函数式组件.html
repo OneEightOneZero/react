@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        *{
+            margin:0;
+            padding:0
+        }
+        header{
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            color:white;
+            background-color: red;
+            text-align: center;
+        }
+    </style>
+    <div id="demo"></div>
+    <script src="../js/react.js"></script>
+    <script src="../js/react-dom.js"></script>
+    <script src="../js/babel.js"></script>
+    <script type="text/babel">
+        // 函数式组件
+        let Xheader = (props) => {
+            console.log(props)
+            return <header>{props.title}</header>
+        }
+        // JSX
+        ReactDOM.render(
+            <div>
+                <Xheader title="微信" age="1" skill="[a,b,c]" />
+                <Xheader title="支付宝" />
+                <Xheader title="设置页" />
+                {
+                    ((title) => {
+                        return <header>{title}</header>
+                    })("底部组件")
+                }
+            </div>,
+            document.querySelector("#demo"),
+            ()=>{
+                console.log("React Running")
+            }
+        )
+    </script>
+</body>
+</html>
