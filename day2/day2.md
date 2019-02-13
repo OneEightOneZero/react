@@ -132,15 +132,15 @@ vue想把视图数据带回数据层`v-model`和`v-on/@xxx`
 - 什么是虚拟DOM，好处是什么（性能，优化）操作虚拟DOM是高效，但是操作真实DOM节点比较高昂
 
 
-|Vue|React|描述|
-|-|-|-|
-|beforeCreate|-|数据和虚拟DOM和真实DOM都没有|
-|created|constructor|有数据|
-|beforeMount|componentWillMount|有数据，有虚拟DOM，但没挂载|
-|mounted|componentDidMount|有数据，有虚拟DOM，有挂载|
-|beforeUpdate|componentWillUpdate|更新数据，并且更新了虚拟DOM，但没挂载|
-|updated|componentDidUpdate|真实DOM更新了|
-|beforeDestory|-|虚拟DOM销毁了，但真实DOM没销毁|
-|destoryed|componentWillUnmount|真实DOM销毁了|
-|-|shouldComponentUpdate|组件只要更新，就会触发这个生命周期，return 布尔值，为真DOM更新，否则不更新|
+|生命周期|Vue|React|描述|
+|-|-|-|-|
+|编译前|beforeCreate|-|数据和虚拟DOM和真实DOM都没有|
+|编译后|created|constructor|有数据|
+|挂载前|beforeMount|componentWillMount|有数据，有虚拟DOM，但没挂载|
+|挂载后|mounted|componentDidMount|有数据，有虚拟DOM，有挂载|
+|更新前|beforeUpdate|componentWillUpdate|更新数据，并且更新了虚拟DOM，但没挂载|
+|更新后|updated|componentDidUpdate|真实DOM更新了|
+|销毁前|beforeDestory|-|虚拟DOM销毁了，但真实DOM没销毁|
+|销毁后|destoryed|componentWillUnmount|真实DOM销毁了|
+||-|shouldComponentUpdate|组件只要更新，就会触发这个生命周期，return 布尔值，为真DOM更新，否则不更新|
 

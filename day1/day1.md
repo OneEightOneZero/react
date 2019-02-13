@@ -331,6 +331,8 @@ ReactDOM.render(
 
 # setState或者setProps
 
+> v-model = onChange + setState
+
 react的语法是`{}`，单向数据绑定
 
 vue的语法是`{{}}`，双向数据绑定
