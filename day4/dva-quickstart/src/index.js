@@ -3,7 +3,13 @@ import 'antd/dist/antd.css';
 import './index.css';
 
 // 1. Initialize
-const app = dva();
+const app = dva({
+  initialState: {
+    products: {
+      author: "wscats eno yao"
+    }
+  }
+});
 
 // 2. Plugins
 // app.use({});
