@@ -20,7 +20,7 @@ Module  （分开多个State仓库）
 安装`redux`的两个必须模块
 ```js
 cnpm install --save redux
-npm install --save react-redux
+cnpm install --save react-redux
 ```
 
 ## 创建仓库
