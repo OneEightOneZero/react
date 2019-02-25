@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="demo"></div>
+    <script>
+        function _bindAttrs(vm) {
+            const {
+                _attrs,
+                _elem
+            } = vm;
+            // 遍历
+            Object.keys(_attrs).forEach(attr => {
+                switch (attr) {
+                    case 'onClick':
+                        _elem.addEventListener('click',(e)=>{
+                            _attrs[attr](e)
+                        })
+                        break;
+                    default:
+                        _elem.setAttribute(attr, _attrs[attr]);
+                }
+            });
+        }
+
+        function _addChildrens(vm) {
+            const {
+                _childrens,
+                _elem,
+            } = vm;
+            _childrens.forEach(children => {
+                let child;
+                switch (typeof children) {
+                    case 'string':
+                        child = document.createTextNode('');
+                        child.textContent = children;
+                        break;
+                    default:
+                        child = children;
+                }
+                _elem.appendChild(child);
+            });
+        }
+
+        function createElement(type, props, ...childrens) {
+            return new Proxy({}, {
+                get(target, tagName) {
+                    return (attrs = {}, ...childrens) => {
+                        // 创建节点
+                        var _elem = document.createElement(tagName);
+                        var _attrs = attrs;
+                        var _childrens = childrens;
+                        // 处理属性值
+                        _bindAttrs({
+                            _elem,
+                            _attrs
+                        });
+                        // // 处理文本值
+                        _addChildrens({
+                            _elem,
+                            _childrens
+                        });
+
+                        return _elem;
+                    };
+                }
+            })[type](props, ...childrens)
+        }
+        let obj = {
+            title: "一个测试的框架"
+        }
+        let template = createElement('div', {
+                name: 'lemon'
+            },
+            obj.title,
+            createElement('p', {
+                skill: 'ps',
+                onClick: (e)=>{
+                    console.log('test')
+                },
+            }, 'Lemon'),
+            createElement('p', {
+                age: 18
+            }, 'Eno')
+        );
+        document.querySelector('#demo').appendChild(template);
+    </script>
+</body>
+
+</html>

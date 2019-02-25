@@ -10,13 +10,17 @@
 
 <body>
     <script>
+        window.Proxy
         let proxyData = new Proxy({}, {
             get(target,props,old) {
                 console.log(target,props,old)
                 return target[props]
             }
         });
+        // get
         proxyData.lemon
+        // set
+        proxyData.lemon = 1
     </script>
 </body>
 

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function test(name, params = 'default') {
+            console.log(name, params)
+            return name
+        }
+        test('A',
+            test('B'),
+            test('C',
+                test('E'),
+                test('F'),
+            ),
+            test('D')
+        )
+        // B -> E -> F -> C -> D -> A
+    </script>
+</body>
+
+</html>

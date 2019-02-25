@@ -77,3 +77,23 @@ let proxyData = new Proxy({}, {
 });
 ```
 需要`new Proxy()`，它接受两个对象，第一个参数为被劫持的对象，第二个参数为一个存放着`set和get`的对象，`let proxyData = new Proxy()`，而`proxyData`其实就是经过原对象被劫持后的对象,所以修改或者获取`proxyData`这个对象，就可以出发对应`set和get`
+
+> JSX -> createElement()结构 -> 对象 -> 真实DOM
+
+# 带函数的情况
+
+```js
+let template = {
+    type: 'div',
+    props: {
+        children: {
+            type: 'p',
+            props: {
+                name: 'lemon',
+                onClick: ()=>{ console.log('test') },
+                children: 'Hello World'
+            }
+        }
+    }
+}
+```

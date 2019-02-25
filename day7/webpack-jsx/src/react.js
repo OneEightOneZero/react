@@ -28,7 +28,7 @@ function _addChildrens(vm) {
     });
 }
 
-function createElement(type, props, childrens) {
+function createElement(type, props, ...childrens) {
     return new Proxy({}, {
         get(target, tagName) {
             return (attrs = {}, ...childrens) => {
@@ -50,7 +50,7 @@ function createElement(type, props, childrens) {
                 return _elem;
             };
         }
-    })[type](props, childrens);
+    })[type](props, ...childrens);
 }
 
 export default {
