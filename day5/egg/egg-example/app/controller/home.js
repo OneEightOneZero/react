@@ -1,7 +1,7 @@
 'use strict';
 
 const Controller = require('egg').Controller;
-const db = require('../../utils/mongod.js');
+// const db = require('../../utils/mongod.js');
 class HomeController extends Controller {
   async index() {
     const { ctx } = this;
@@ -13,19 +13,19 @@ class HomeController extends Controller {
     ctx.body = 'eno, yao';
   }
 
-  async find() {
-    const { ctx } = this;
-    ctx.response.append = 'Access-Control-Allow-Origin:*';
-    const data = await db.find('students');
-    console.log(data);
-    const newData = data.map((item, index) => {
-      item.key = index;
-      return item;
-    });
-    ctx.body = {
-      data: newData,
-    };
-  }
+  // async find() {
+  //   const { ctx } = this;
+  //   ctx.response.append = 'Access-Control-Allow-Origin:*';
+  //   const data = await db.find('students');
+  //   console.log(data);
+  //   const newData = data.map((item, index) => {
+  //     item.key = index;
+  //     return item;
+  //   });
+  //   ctx.body = {
+  //     data: newData,
+  //   };
+  // }
 }
 
 module.exports = HomeController;

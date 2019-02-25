@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- View -->
+    <div id="demo"></div>
+    <script src="../js/react.js"></script>
+    <script src="../js/react-dom.js"></script>
+    <script src="../js/babel.js"></script>
+    <!-- JSX语法 script标签里面写的都是JSX语法，所以要设置type="text/babel"通知babel.js帮你把JSX转为JS -->
+    <script type="text/babel">
+        let template = <div>
+            <p name = 'lemon'>Hello World</p>
+        </div>
+        console.log(template);
+        ReactDOM.render(
+            template
+            ,
+            document.querySelector("#demo")
+        )
+    </script>
+</body>
+</html>

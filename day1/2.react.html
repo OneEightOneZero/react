@@ -22,10 +22,24 @@
         // vue借助v-model,@xxx,v-on:xxx，才可以完成视图更改，数据变化
         // react是没有任何指令的，所以要V->M是没有v-model，只有事件这种方法
         let data = {
-            name:"lemon"
+            obj:{
+                q:1,
+                w:2
+            },
+            arr :[<li key='1'>q</li>,<li key='2'>w</li>]
         }
         let template = <div>
-            <p>{data.name}</p>
+            <ul>{
+                ((obj)=>{
+                    let arr = [];
+                    for(let o in obj){
+                        console.log(obj[o])
+                        arr.push(<li key={o}>{obj[o]}</li>)
+                    }
+                    console.log(arr)
+                    return arr;
+                })(data.obj)
+            }</ul>
         </div>
 
         console.log(template)
